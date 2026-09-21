@@ -4,16 +4,16 @@ using System.Text;
 
 namespace TicTacToe
 {
-    public class Player
+    internal class Player
     {
-        public enum Values
+        internal enum Values
         {
             X,
             O
         }
-        public int map;
-        public Values Sign;
-        public Player(Values sign)
+        internal int map;
+        internal Values Sign;
+        internal Player(Values sign)
         {
             map = 0;
             Sign = sign;

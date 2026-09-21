@@ -7,14 +7,14 @@ namespace TicTacToe
         private Player player2;
         private GameStat gameStat;
         private Player curPlayer;
-        enum GameStat
+        private enum GameStat
         {
             Win,
             Draw,
             InProcess
         }
 
-        int[] winCombinations =
+        private int[] winCombinations =
         {
             0b000000111,
             0b000111000,
@@ -26,7 +26,7 @@ namespace TicTacToe
             0b010010010
         };
 
-        void MakeMove()
+        private void MakeMove()
         {
             int? row = null, col = null;
             while (row == null)
@@ -47,7 +47,7 @@ namespace TicTacToe
                 SwitchPlayers();
             }
         }
-        void CheckGameStat()
+        private void CheckGameStat()
         {
             if (winCombinations.Any(comb => (comb & curPlayer.map) == comb))
             {
@@ -60,7 +60,7 @@ namespace TicTacToe
             }
         }
 
-        void SwitchPlayers()
+        private void SwitchPlayers()
         {
             if (curPlayer == player1) curPlayer = player2;
             else curPlayer = player1;
