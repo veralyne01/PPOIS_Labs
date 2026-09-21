@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Tic-Tac-Toe/TicTacToe.csproj" />
+  <Project Path="TicTacToe.WPF/TicTacToe.WPF.csproj" />
+</Solution>
