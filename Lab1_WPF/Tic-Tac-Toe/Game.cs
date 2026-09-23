@@ -26,15 +26,16 @@ namespace TicTacToe
             0b010010010
         };
 
-        public void MakeMove(int row, int col)
+        public bool MakeMove(int row, int col)
         {
             int target = row * 3 + col;
-            if (InputValidator.ValidateMove(target, player1, player2)) curPlayer.map |= (1 << target);
-            else
+            bool performed = false;
+            if (InputValidator.ValidateMove(target, player1, player2))
             {
-                Console.WriteLine("This cell is already occupied!\n");
-                SwitchPlayers();
+                curPlayer.map |= (1 << target);
+                performed = true;
             }
+            return performed;
         }
         public void CheckGameStat()
         {

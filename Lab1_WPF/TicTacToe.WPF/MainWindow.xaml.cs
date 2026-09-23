@@ -29,20 +29,20 @@ namespace TicTacToe.WPF
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            game.MakeMove(Grid.GetRow(button), Grid.GetColumn(button));
-            button.Content = game.curPlayer.Sign;
-            game.CheckGameStat();
-            if (game.gameStat == Game.GameStat.Win)
+            if (game.MakeMove(Grid.GetRow(button), Grid.GetColumn(button)))
             {
-                MessageBox.Show($"Player {game.curPlayer.Sign} wins!");
-                this.Close();
-            }
-            else if (game.gameStat == Game.GameStat.Draw)
-            {
-                MessageBox.Show("Friendship wins!<3");
-                this.Close();
-            }
-            else { 
+                button.Content = game.curPlayer.Sign;
+                game.CheckGameStat();
+                if (game.gameStat == Game.GameStat.Win)
+                {
+                    MessageBox.Show($"Player {game.curPlayer.Sign} wins!");
+                    this.Close();
+                }
+                else if (game.gameStat == Game.GameStat.Draw)
+                {
+                    MessageBox.Show("Friendship wins!<3");
+                    this.Close();
+                }
                 game.SwitchPlayers();
                 textBox.Text = $"{game.curPlayer.Sign} moves";
             }
